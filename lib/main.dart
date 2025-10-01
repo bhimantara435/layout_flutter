@@ -35,13 +35,11 @@ class MyApp extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            /* soal 1 */
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start, // mulai dari kiri
               children: [
-                /* soal 2 */
                 Container(
-                  padding: const EdgeInsets.only(bottom: 8), // padding bawah 8
+                  padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
                     'Wisata Gunung di Batu',
                     style: TextStyle(
@@ -52,20 +50,31 @@ class MyApp extends StatelessWidget {
                 const Text(
                   'Batu, Malang, Indonesia',
                   style: TextStyle(
-                    color: Colors.grey, // warna abu-abu
+                    color: Colors.grey,
                   ),
                 ),
               ],
             ),
           ),
-          /* soal 3 */
           const Icon(
             Icons.star,
-            color: Colors.red, // warna merah
+            color: Colors.red,
           ),
           const Text('41'),
         ],
       ),
+    );
+
+    // ===== Button Section (Langkah 2) =====
+    Color color = Theme.of(context).primaryColor;
+
+    Widget buttonSection = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _buildButtonColumn(color, Icons.call, 'CALL'),
+        _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
+        _buildButtonColumn(color, Icons.share, 'SHARE'),
+      ],
     );
 
     // ===== Return MaterialApp =====
@@ -77,8 +86,8 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            titleSection, // tampilkan titleSection
-            // button row nanti bisa ditambahkan di bawah sini
+            titleSection,   // tampilkan titleSection
+            buttonSection,  // tampilkan buttonSection
           ],
         ),
       ),
